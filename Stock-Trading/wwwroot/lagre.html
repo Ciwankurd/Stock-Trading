@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Lagre Stock</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    <script src="js/lagre.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-white bg-white">
+            <a class="navbar-brand" href="index.html">
+                <img src="Logo.png" alt="stock logo">
+            </a>
+        </nav>
+    </header>
+
+        <div class="row">
+            <div class="col-md-9 mx-auto">
+                <form class="form">
+                    <!--
+                    <div class="form-group">
+                         <label>Selskap_id</label>
+                         <input type="text" id="selskap_id"  />
+                        <span id="feilselskap_id" style="color: red"></span>
+                   </div>
+            -->
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <h1 class="text-white">Oprette Selskap/Stock</h1>
+                         </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6 ">
+                            <label>Selskap</label>
+                            <input type="text" id="selskap" onchange="" />
+                            <span id="selskap" style="color: red"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6 ">
+                            <label>Antall Stock</label>
+                            <input type="text" id="AntallStock" onchange="" />
+                            <span id="feilAntallStock" style="color: red"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6 ">
+                            <label>åpningstid</label>
+                            <input type="text" id="apningstid" onchange="" />
+                            <span id="feilapningstid" style="color: red"></span>
+                        </div>
+                    </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-6 ">
+                                <label>sluttstid</label>
+                                <input type="text" id="SluttTid" onchange="" />
+                                <span id="feilSluttTid" style="color: red"></span>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-sm-6 ">
+                                <label>SistePrise</label>
+                                <input type="text" id="SistePrise" onchange="" />
+                                <span id="feilSistePrise" style="color: red"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-sm-6 ">
+                                <label>Volume</label>
+                                <input type="text" id="Volume" onchange="" />
+                                <span id="feilVolume" style="color: red"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            
+                                <input type="button" id="reg" value="Lagre" onClick="lagreStock()" class="btn btn-primary" />
+                                <a href="index.html" class="btn btn-danger">Avbryt</a>
+              
+                        </div>
+
+                        <div id="feil" style="color: red"></div>
+
+                </form>
+
+
+            </div>
+        </div>
+</body>
+</html>
