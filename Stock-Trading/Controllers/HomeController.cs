@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Stock_Trading.Controllers
 {
-    //try
+    //try2
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
