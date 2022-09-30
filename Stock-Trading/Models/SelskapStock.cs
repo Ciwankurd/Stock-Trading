@@ -5,6 +5,7 @@ namespace Stock_Trading.Models
     public class SelskapStock
     {
         // heee
+        //fghhj
         public string Id { get; set; }
         [RegularExpression(@"[a-zA-ZæøåÆØÅ. \-]{2,20}")]
         public string SelskapNavn { get; set; }
