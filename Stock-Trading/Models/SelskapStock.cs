@@ -8,6 +8,7 @@ namespace Stock_Trading.Models
         //fghhj
         // Fadle
         // kurdo
+        //ff
         public string Id { get; set; }
         [RegularExpression(@"[a-zA-ZæøåÆØÅ. \-]{2,20}")]
         public string SelskapNavn { get; set; }
