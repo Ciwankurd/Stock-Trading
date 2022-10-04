@@ -2,13 +2,8 @@
 
 namespace Stock_Trading.Models
 {
-    public class SelskapStock
+    public class Stock
     {
-        // heee
-        //fghhj
-        // Fadle
-        // kurdo
-        //ff
         public string Id { get; set; }
         [RegularExpression(@"[a-zA-ZæøåÆØÅ. \-]{2,20}")]
         public string SelskapNavn { get; set; }
