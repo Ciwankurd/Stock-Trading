@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Stock_Trading.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,16 +26,25 @@ namespace Stock_Trading
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            
+            services.AddControllers().AddNewtonsoftJson(options =>
+                   options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+       // må være med når det skal serialiseres "kompliserte" strukturer til JSON. 
+       // i tillegg må Microsoft.AspNetCore.NewtonsoftJson installeres som pakke
+       );
+            services.AddDbContext<StockContext>(options => options.UseSqlite("Data Source=Stock.db"));
+            services.AddScoped<IstockRepository, StockRepository>();
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                loggerFactory.AddFile("Logs/StockLog.txt");
+                DbInit.Initialize(app);
             }
             else
             {

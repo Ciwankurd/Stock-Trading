@@ -1,103 +1,107 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
-    <title>Endre Stock</title>
+    <title>Lagre Stock</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/endre.js></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/endre.js"></script>
+
 </head>
 <body>
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-white bg-white">
             <a class="navbar-brand" href="index.html">
                 <img src="Logo.png" alt="stock logo">
             </a>
         </nav>
-
-
     </header>
 
-        <div class="row">
-            <div class="col-md-9 mx-auto">
-                <form class="form">
-                    <!--
-                    <div class="form-group">
-                         <label>Selskap_id</label>
-                         <input type="text" id="selskap_id"  />
-                         <span id="feilselskap_id" style="color: red"></span>
-                    </div>
-                    -->
+        <div class="container-sm  w-15">
+            <div class="row">
+                <div class="col-md-9 mx-auto">
+                    <form>
 
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <h1 class="text-white">Endre Selskap/Stock</h1>
+
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <h1 class="text-white">Endre Stock</h1>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <div class="col-sm-6 ">
-                            <label>Selskap</label>
-                            <input type="text" id="selskap" onchange="" />
-                            <span id="selskap" style="color: red"></span>
+                        <div class="form-group row">
+                            <div class="col-sm-6 ">
+                                <label class="label">SId</label>
+                                <input class="form-control" id="SId"  disabled="disabled"/>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <div class="col-sm-6 ">
-                            <label>Antall Stock</label>
-                            <input type="text" id="AntallStock" onchange="" />
-                            <span id="feilAntallStock" style="color: red"></span>
+                        <div class="form-group row">
+                            <div class="col-sm-6 ">
+                                <label class="label">Selskap</label>
+                                <input type="text" class="form-control" id="SelskapNavn" onchange="" />
+                                <span id="feilSelskapNavn" style="color: red"></span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <div class="col-sm-6 ">
-                            <label>åpningstid</label>
-                            <input type="text" id="apningstid" onchange="" />
-                            <span id="feilapningstid" style="color: red"></span>
+                        <div class="form-group row">
+                            <div class="col-sm-6 ">
+                                <label class="label">Antall Stock</label>
+                                <input type="text" class="form-control" id="AnatallStock" onchange="" />
+                                <span id="feilAnatallStock" style="color: red"></span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <div class="col-sm-6 ">
-                            <label>sluttstid</label>
-                            <input type="text" id="SluttTid" onchange="" />
-                            <span id="feilSluttTid" style="color: red"></span>
+                        <div class="form-group row">
+                            <div class="col-sm-6 ">
+                                <label class="label">Tegn</label>
+                                <input type="text" class="form-control" id="Tegn" onchange="" />
+                                <span id="feilTegn" style="color: red"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-6 ">
+                                <label class="label">Endring</label>
+                                <input type="text" class="form-control" id="Endring" onchange="" />
+                                <span id="feilSluttTid" style="color: red"></span>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-sm-6 ">
+                                <label class="label">SistePrise</label>
+                                <input type="text" class="form-control" id="SistePrise" onchange="" />
+                                <span id="feilSistePrise" style="color: red"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-sm-6 ">
+                                <label class="label">Volume</label>
+                                <input type="text" class="form-control" id="volume" onchange="" />
+                                <span id="feilvolume" style="color: red"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <input type="button" id="reg" value="Endre" onClick="EndreStock()" class="btn btn-primary" />
+                                <a href="Admin.html" class="btn btn-danger">Avbryt</a>
+                            </div>
 
                         </div>
-                    </div>
+
+                        <div id="feil" style="color: red"></div>
+
+                    </form>
 
 
-                    <div class="form-group row">
-                        <div class="col-sm-6 ">
-                            <label>SistePrise</label>
-                            <input type="text" id="SistePrise" onchange="" />
-                            <span id="feilSistePrise" style="color: red"></span>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <div class="col-sm-6 ">
-                            <label>Volume</label>
-                            <input type="text" id="Volume" onchange="" />
-                            <span id="feilVolume" style="color: red"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-
-                        <input type="button" id="reg" value="Lagre" onClick="endreStock()" class="btn btn-primary" />
-                        <br />
-                        <a href="index.html" class="btn btn-danger">Avbryt</a>
-
-                    </div>
-
-                    <div id="feil" style="color: red"></div>
-
-                </form>
-
-
+                </div>
             </div>
         </div>
 </body>

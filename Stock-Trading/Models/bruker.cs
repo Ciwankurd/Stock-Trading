@@ -1,8 +1,12 @@
-﻿namespace Stock_Trading.Models
+﻿using Castle.Components.DictionaryAdapter;
+using System.ComponentModel.DataAnnotations;
+
+namespace Stock_Trading.Models
 {
-    public class bruker
+    public class Bruker
     {
-        public int Id { get; set; }
+        [System.ComponentModel.DataAnnotations.Key]
+        public int BId { get; set; }
 
         public string brukernavn { get; set; }
         public string password { get; set; }

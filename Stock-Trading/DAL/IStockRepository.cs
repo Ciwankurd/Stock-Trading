@@ -11,8 +11,12 @@ namespace Stock_Trading.DAL
         Task<bool> SlettStock(int id);
         Task<Stock> HentEnStock(int id);
         Task<bool> EndreStock(Stock endreStock);
-        Task<bool> LoggInn(Bruker bruker);
-        Task<Stock> HentEnBruker(int id);
-
+        Task<bool> RegistrereNyBruker(Bruker nybruker);
+        Task<int> LoggInn(Bruker bruker);
+        Task<Bruker> HentEnBruker(int id);
+        Task<List<BrukerStock>> HentAlleBrukerStocks(int KId);
+        Task<bool> KjopeStocks(BrukerStock kjopstocks);
+        Task<bool> SelgeStocks(BrukerStock selgeEnstocks);
+        
     }
 }
