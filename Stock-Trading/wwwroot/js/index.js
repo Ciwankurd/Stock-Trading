@@ -25,7 +25,7 @@ function hentAlleStocks() {
 function formaterStocks(stocks) {
     let ut = "<table class='table table-striped'>" +
         "<tr>" +
-        "<th>SId</th><th>Tegn</th><th>Selskap</th><th>Antall Stock</th><th>Endring</th><th>Siste Pirse</th><th>Volume</th>" +
+        "<th>SId</th><th>Tegn</th><th>Selskap</th><th>Antall Stock</th><th>Dato/Tid</th><th>Endring</th><th>Siste Pirse</th><th>Volume</th>" +
         "</tr>";
     for (let s of stocks) {
         ut += "<tr>" +
@@ -33,6 +33,7 @@ function formaterStocks(stocks) {
             "<td>" + s.tegn + "</td>" +
             "<td>" + s.selskapNavn + "</td>" +
             "<td>" + s.antallStock + "</td>" +
+            "<td>" + s.dateAndTime + "</td>" +
             "<td>" + s.endring + "</td>" +
             "<td>" + s.sistePrise + "</td>" +
             "<td>" + s.volume + "</td>" +
