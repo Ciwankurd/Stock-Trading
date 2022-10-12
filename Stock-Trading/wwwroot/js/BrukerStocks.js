@@ -26,7 +26,7 @@ function HentBrukerStocks() {
 function formaterStocks(BS) {
     let ut = "<table class='table table-striped'>" +
         "<tr>" +
-        "<th>BID</th><th>Owner</th><th>Stock ID</th><th>Tegn</th><th>Selskap</th><th>Antall Stock</th><th>Endring</th><th>Siste Pirse</th><th>Volume</th>" +
+        "<th>BID</th><th>Owner</th><th>Stock ID</th><th>Tegn</th><th>Selskap</th><th>Antall Stock</th><th>Dato/Tid</th><th>Endring</th><th>Siste Pirse</th><th>Volume</th>" +
         "</tr>";
     for (let i = 0; i < BS.length; i++) {
         console.log(BS[0].bruker.bId);
@@ -37,6 +37,7 @@ function formaterStocks(BS) {
             "<td>" + BS[i].stock.tegn + "</td>" +
             "<td>" + BS[i].stock.selskapNavn + "</td>" +
             "<td>" + BS[i].antallstock + "</td>" +
+            "<td>" + BS[i].dateAndTime + "</td>" +
             "<td>" + BS[i].stock.endring + "</td>" +
             "<td>" + BS[i].stock.sistePrise + "</td>" +
             "<td>" + BS[i].stock.volume + "</td>" +
