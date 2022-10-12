@@ -130,7 +130,15 @@ namespace Stock_Trading.DAL
         {
             try
             {
-                List<BrukerStock> bs = await _db.brukerstock.Where(S => S.bruker.BId==Bid).ToListAsync();
+                List<BrukerStock> bs = await _db.brukerstock.Where(S => S.BId==Bid).ToListAsync();
+                /*
+
+                for (int i=0; i< bs.Count; i++)
+                {
+                    bs[i].stock = HentEnStock(bs[i].SId);
+                }
+                */
+
                 return bs;
                 /*
                 List<BrukerStock> hentetStock = await _db.brukerstock.Select(s => new BrukerStock
@@ -176,11 +184,11 @@ namespace Stock_Trading.DAL
 
                 var NyRadKjoptSB = new BrukerStock();
                 NyRadKjoptSB.antallstock = BS.antallstock;
-                NyRadKjoptSB.bruker.BId = BS.bruker.BId;
-                NyRadKjoptSB.stock.SId = BS.stock.SId;
+                NyRadKjoptSB.BId = BS.BId;
+                NyRadKjoptSB.SId = BS.SId;
                 NyRadKjoptSB.DateAndTime = BS.DateAndTime;
 
-                var funnetstock = await _db.stocks.FindAsync(BS.stock.SId);
+                var funnetstock = await _db.stocks.FindAsync(BS.SId);
                 if (BS.antallstock < funnetstock.AntallStock)
                 {
                     funnetstock.AntallStock = funnetstock.AntallStock - BS.antallstock;
@@ -208,11 +216,11 @@ namespace Stock_Trading.DAL
         {
             try
             {
-                BrukerStock bs = await _db.brukerstock.FindAsync(BS.bruker.BId);
+                BrukerStock bs = await _db.brukerstock.FindAsync(BS.BSId);
 
                 if (bs.antallstock == BS.antallstock)
                 {
-                    var funnetstock = await _db.stocks.FindAsync(BS.stock.SId);
+                    var funnetstock = await _db.stocks.FindAsync(bs.SId);
                     funnetstock.AntallStock = funnetstock.AntallStock + BS.antallstock;
                     _db.stocks.Update(funnetstock);
                     _db.brukerstock.Remove(bs);
@@ -222,7 +230,7 @@ namespace Stock_Trading.DAL
                 else if (bs.antallstock > BS.antallstock) {
 
                     bs.antallstock = bs.antallstock - BS.antallstock;
-                    var funnetstock = await _db.stocks.FindAsync(BS.stock.SId);
+                    var funnetstock = await _db.stocks.FindAsync(bs.SId);
                     funnetstock.AntallStock = funnetstock.AntallStock + BS.antallstock;
                     _db.stocks.Update(funnetstock);
                     _db.brukerstock.Update(bs);

@@ -66,13 +66,13 @@ namespace Stock_Trading.Controllers
         {
              return await _db.KjopeStocks(kjopeNystocks);
         }
-        public async Task<bool> slegeStoks(BrukerStock SelgeEnStocks)
+        public async Task<bool> slegeStocks(BrukerStock SelgeEnStocks)
         {
             return await _db.SelgeStocks(SelgeEnStocks);
         }
-        public async Task<List<BrukerStock>> HentBrukerStocks(int Kid)
+        public async Task<List<BrukerStock>> HentBrukerStocks(int BId)
         {
-            List<BrukerStock> alleBrukerStock = await _db.HentAlleBrukerStocks(Kid);
+            List<BrukerStock> alleBrukerStock = await _db.HentAlleBrukerStocks(BId);
             return alleBrukerStock;
         }
     }

@@ -5,7 +5,7 @@
     }
     const url = "Stock/logginn";
     $.get(url, Bruker, function (BId) {
-        window.location.href = 'index.html?BId='+BId;
+        window.location.href = 'index.html?'+BId;
     })
         .fail(function (feil) {
             if (feil.status == 401) {  // ikke logget inn, redirect til loggInn.html
