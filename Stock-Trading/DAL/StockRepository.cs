@@ -186,7 +186,7 @@ namespace Stock_Trading.DAL
                 NyRadKjoptSB.antallstock = BS.antallstock;
                 NyRadKjoptSB.BId = BS.BId;
                 NyRadKjoptSB.SId = BS.SId;
-                NyRadKjoptSB.DateAndTime = BS.DateAndTime;
+                NyRadKjoptSB.DateAndTime = DateAndTime.Now.ToString();
 
                 var funnetstock = await _db.stocks.FindAsync(BS.SId);
                 if (BS.antallstock < funnetstock.AntallStock)

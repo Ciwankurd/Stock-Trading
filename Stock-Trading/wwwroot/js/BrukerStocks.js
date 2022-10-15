@@ -56,7 +56,6 @@ function selgeStock() {
     const url = "Stock/slegeStocks"
     const brukerStock = {
         antallstock: $("#antallStocks").val(),
-        DateAndTime: $("#datoTid").val(),
         BSId: $("#bSId").val()
     }
     $.post(url, brukerStock, function (ok) {

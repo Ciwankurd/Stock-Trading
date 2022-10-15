@@ -51,7 +51,6 @@ function KjopeStock() {
     const url = "Stock/kjopestocks"
     const brukerStock = {
         antallstock: $("#antallStocks").val(),
-        DateAndTime: $("#datoTid").val(),
         BId: $("#BId").val(),
         SId: $("#SId").val()
     }
